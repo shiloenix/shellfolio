@@ -40,16 +40,19 @@ To uninstall:
 
 ---
 
+# Run
+
+```bash
+# If installed system-wide
+zfolio
+ 
+# Or directly from the repo
+./zfolio
+```
+
+---
+
 ## Modes
 Zfolio is an interactive terminal-style portfolio that combines a traditional shell experience with a modern navigable menu system:
 * Shell mode
 * Browser mode
-
-## Project structure
-
-```
-zfolio/
-├── zfolio          # the portfolio script
-├── install.sh      # installer / uninstaller
-└── README.md
-```
