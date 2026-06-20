@@ -32,7 +32,7 @@ PROMPT_HOST="portfolio"
 
 NAME="Zahàna"
 ROLE_SHORT="Embedded · Cyber · Microelectronics · ML/AI"
-ROLE_FULL="Embedded Systems Engineer - Cybersecurity Operator - Microelectronics Researcher - ML/AI Architect"
+ROLE_FULL="Embedded Systems Engineer - Cybersecurity Operator - Nanoelectronics Researcher - ML/AI Architect"
 LOCATION="Madagascar"
 EMAIL="fitia.razafindrabezahana@zahix.org"
 GITHUB="github.com/shiloenix"
@@ -49,14 +49,17 @@ SKILLS=(
 )
 
 PROJECTS=(
-  "ZahixOS Hardened BSP|Minimal hardened Linux BSP for ARM microcontrollers with secure boot chain.|C, Yocto, ARM|zahix.org/projects/os"
-  "RF Signal Analyzer|Real-time spectrum analyzer with anomaly detection via SDR.|Python, GNU Radio, PyTorch|zahix.org/projects/rf"
-  "SilentMesh|Encrypted LoRa mesh network for off-grid communications.|C++, LoRa, AES-256|zahix.org/projects/mesh"
+  "Stockeo|A powerful inventory system that tracks products in real time.|Angular - TS - Nestjs - MongoDB|https://zahix.org/projects"
+  "Aiza|A lightweight search tool for Linux that lets users find files across their system.|C++ - Linux - Regex - Inotify|https://github.com/shiloenix/aiza"
+  "Vido|A sleek web based platform that lets users quickly download videos from multiple sources.|React - Expressjs - yt-dlp|https://github.com/shiloenix/vido"
+  "Dipavo|A terminal-based disk management tool for Linux.|C++ - Libparted - LTXUI - Bash|https://github.com/shiloenix/dipavo"
+  "Picasso|A powerful GUI application for image editing and viewing in Linux.|C - OpenGL - Linux - Hyprland|https://github.com/shiloenix/aiza"
 )
 
 EXPERIENCE=(
-  "2023 – present|Founder · Zahix|Building embedded & cyber solutions from Madagascar to the world."
-  "2022 – 2023|Embedded Engineer|RTOS development, PCB design, low-level firmware for industrial systems."
+  "Oct. 2025 – present|Founder · Zahix|Building embedded & cybersec solutions from Madagascar to the world."
+  "Aug. 2025 - Feb. 2026|IT Tech · ITRAS|Administrating Linux servers, configuring and managing network infrastructure."
+  "May 2025 – Aug. 2025|DevOPS Intern · Eqima Solutions|Developing and deploying applications and monitoring IT systems."
 )
 
 BROWSER_ENTRIES=("whofetch" "about" "skills" "projects" "experience" "contact")
@@ -467,7 +470,7 @@ build_panel_content() {
         "$(printf "%b%s%b@%b%s%b" "$FG_GREEN$BOLD" "$PROMPT_USER" "$RESET" "$FG_GREEN$BOLD" "$PROMPT_HOST" "$RESET")"
         "$(printf "%b%s%b" "$FG_GRAY" "──────────────────────────────────────" "$RESET")"
         "$(printf "%b%-9s%b  %s" "$FG_CYAN" "Name"     "$RESET" "$NAME")"
-        "$(printf "%b%-9s%b  %s" "$FG_CYAN" "Role"     "$RESET" "Embedded · Cyber · Micro · ML/AI")"
+        "$(printf "%b%-9s%b  %s" "$FG_CYAN" "Role"     "$RESET" "Embedded · Cybersec · Electronics · ML/AI")"
         "$(printf "%b%-9s%b  %s" "$FG_CYAN" "Location" "$RESET" "$LOCATION")"
         "$(printf "%b%-9s%b  %s" "$FG_CYAN" "Website"  "$RESET" "$WEBSITE")"
         "$(printf "%b%-9s%b  %s" "$FG_CYAN" "GitHub"   "$RESET" "$GITHUB")"
