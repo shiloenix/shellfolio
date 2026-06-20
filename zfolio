@@ -405,7 +405,7 @@ draw_chrome() {
   printf '═%.0s' $(seq 1 $(( pw - 1 )))
   printf "╝%b" "$RESET"
 
-  local hint="  ↑↓ navigate     1-6 jump     q quit  "
+  local hint="  ↑↓ navigate     1-6 jump     q quit     Esc Return   "
   local hlen=${#hint}
   local hpos=$(( sw + 2 + (pw - hlen) / 2 ))
   (( hpos < sw + 2 )) && hpos=$(( sw + 2 ))
