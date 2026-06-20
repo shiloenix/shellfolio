@@ -59,8 +59,8 @@ EXPERIENCE=(
   "2022 – 2023|Embedded Engineer|RTOS development, PCB design, low-level firmware for industrial systems."
 )
 
-MENU_ENTRIES=("whofetch" "about" "skills" "projects" "experience" "contact")
-MENU_LABELS=("whofetch" "about me" "skills" "projects" "experience" "contact")
+BROWSER_ENTRIES=("whofetch" "about" "skills" "projects" "experience" "contact")
+BROWSER_LABELS=("whofetch" "about me" "skills" "projects" "experience" "contact")
 
 PANEL_LINES=()
 PANEL_NONCENTER=0
@@ -241,7 +241,7 @@ cmd_help() {
     "contact:how to reach me"
     "clear:clear terminal output"
     "sudo:administrative privilege test"
-    "menu:switch to split-pane visual mode"
+    "B:switch to split-pane browser mode"
     "exit:exit the system profile"
   )
   for c in "${cmds[@]}"; do
@@ -277,7 +277,7 @@ boot_shell() {
   clr
   print_banner_centered
   cmd_whofetch
-  say " Type 'help' or '/?' to see available commands. Type 'menu' for visual mode." "$FG_GREEN"
+  say " Type 'help' or '/?' to see available commands. Type 'B' for browser mode." "$FG_GREEN"
   echo
 }
 
@@ -298,10 +298,10 @@ shell_loop() {
       contact)    cmd_contact ;;
       clear|cls)  clr ;;
       sudo*)      cmd_sudo ;;
-      menu)
-        say " Switching to menu mode..." "$FG_CYAN"
+      b|B)
+        say " Switching to browser mode..." "$FG_CYAN"
         sleep 0.4
-        menu_loop
+        browser_loop
         boot_shell
         ;;
       exit|quit)
@@ -402,7 +402,7 @@ draw_chrome() {
   printf '═%.0s' $(seq 1 $(( pw - 1 )))
   printf "╝%b" "$RESET"
 
-  local hint="  ↑↓ navigate   ↵ select   1-6 jump   q quit  "
+  local hint="  ↑↓ navigate     1-6 jump     q quit  "
   local hlen=${#hint}
   local hpos=$(( sw + 2 + (pw - hlen) / 2 ))
   (( hpos < sw + 2 )) && hpos=$(( sw + 2 ))
@@ -412,7 +412,7 @@ draw_chrome() {
 
 draw_sidebar() {
   local selected=$1
-  local total=${#MENU_ENTRIES[@]}
+  local total=${#BROWSER_ENTRIES[@]}
   local rows; rows=$(get_term_height)
   local sw=$SIDEBAR_W
   local chrome_start=$(( BANNER_ROWS + 1 ))
@@ -432,7 +432,7 @@ draw_sidebar() {
   for (( i=0; i<total; i++ )); do
     local row=$(( item_start + 1 + i * 2 ))
     (( row >= rows - 1 )) && break
-    local label="${MENU_LABELS[$i]}"
+    local label="${BROWSER_LABELS[$i]}"
     local num=$(( i + 1 ))
     goto "$row" 2
     if (( i == selected )); then
@@ -589,7 +589,7 @@ draw_panel() {
     clear_eol
   done
 
-  local entry="${MENU_ENTRIES[$idx]}"
+  local entry="${BROWSER_ENTRIES[$idx]}"
   build_panel_content "$entry"
 
   local row="$content_start"
@@ -610,9 +610,9 @@ draw_panel() {
   done
 }
 
-menu_loop() {
+browser_loop() {
   local selected=0
-  local total=${#MENU_ENTRIES[@]}
+  local total=${#BROWSER_ENTRIES[@]}
 
   hide_cursor
   clr
@@ -683,7 +683,7 @@ mode_selector() {
     center_line "[ 1 ]  shell mode" "$FG_GREEN$BOLD"
     center_line "type commands like a real terminal" "$FG_GRAY"
     echo
-    center_line "[ 2 ]  menu mode" "$FG_BLUE$BOLD"
+    center_line "[ 2 ]  browser mode" "$FG_BLUE$BOLD"
     center_line "split-pane UI · arrow keys to navigate" "$FG_GRAY"
     echo
     echo
@@ -701,8 +701,8 @@ mode_selector() {
       1|s|S|shell)
         shell_loop
         ;;
-      2|m|M|menu)
-        menu_loop
+      2|b|B|browser)
+        browser_loop
         ;;
       exit|q|Q)
         exit 0
