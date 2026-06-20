@@ -1,19 +1,7 @@
 # zfolio
 
 A terminal portfolio for engineers who live in the shell.  
-Two modes: a fully interactive command-line shell and a split-pane TUI with arrow-key navigation.  
 No dependencies. Pure bash.
-
-```
-  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-      ██████╗  █████╗ ██╗  ██╗ █████╗ ███╗  ██╗ █████╗
-      ╚════██╗██╔══██╗██║  ██║██╔══██╗████╗ ██║██╔══██╗
-       █████╔╝███████║███████║███████║██╔██╗██║███████║
-      ██╔═══╝ ██╔══██║██╔══██║██╔══██║██║╚████║██╔══██║
-      ███████╗██║  ██║██║  ██║██║  ██║██║ ╚███║██║  ██║
-      ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚══╝╚═╝  ╚═╝
-  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-```
 
 ---
 
@@ -39,7 +27,7 @@ cd zfolio
 ```
 
 The installer will:
-- Detect your OS and pick the right install directory (`/usr/local/bin` or `/opt/homebrew/bin` on Apple Silicon)
+- Detect your OS and pick the right install directory (`/usr/local/bin` or `/opt/homebrew/bin` on MacOS)
 - Request `sudo` only if needed
 - Verify the binary landed correctly
 - Warn you if the install directory isn't in your `$PATH`
@@ -52,100 +40,10 @@ To uninstall:
 
 ---
 
-## Run
-
-```bash
-# If installed system-wide
-zfolio
-
-# Or directly from the repo
-./zfolio
-```
-
-On launch you'll be asked to choose a mode.
-
----
-
 ## Modes
-
-### Shell mode
-
-A fake interactive terminal. Type commands like you would in a real shell.
-
-```
-zahana@portfolio:~$ whofetch
-zahana@portfolio:~$ skills
-zahana@portfolio:~$ projects
-zahana@portfolio:~$ contact
-```
-
-| Command      | Description                        |
-|--------------|------------------------------------|
-| `whofetch`   | neofetch-style identity card       |
-| `about`      | bio and background                 |
-| `skills`     | tech stack and expertise           |
-| `projects`   | things built                       |
-| `experience` | work history                       |
-| `contact`    | links and email                    |
-| `menu`       | switch to split-pane TUI           |
-| `clear`      | clear the screen                   |
-| `sudo`       | try it                             |
-| `/?`         | show all commands                  |
-| `exit`       | quit                               |
-
-### Menu mode
-
-Split-pane TUI. Sidebar on the left, content panel on the right.
-
-```
-↑ ↓          navigate sections
-1 – 6        jump directly to a section
-Esc          return to shell mode
-q            quit
-```
-
-Type `menu` in shell mode to enter it, or choose `2` at the launch prompt.
-
----
-
-## Customization
-
-All personal data lives at the top of `zfolio` in clearly labeled variables — no digging through functions required.
-
-```bash
-# Identity
-NAME="Zahàna"
-ROLE_SHORT="Embedded · Cyber · Microelectronics · ML/AI"
-ROLE_FULL="Embedded Systems Engineer - ..."
-LOCATION="Madagascar"
-EMAIL="you@example.com"
-GITHUB="github.com/yourhandle"
-LINKEDIN="linkedin.com/in/yourprofile"
-WEBSITE="yoursite.dev"
-
-# Bio paragraph
-ABOUT="Your bio here."
-
-# Skills — format: "Label : value, value, value"
-SKILLS=(
-  "Languages  : C, C++, Python"
-  "Embedded   : Arduino, RTOS, FPGA"
-)
-
-# Projects — format: "Name|Description|Stack|Link"
-PROJECTS=(
-  "Project Name|What it does.|Lang, Framework|yoursite.dev/project"
-)
-
-# Experience — format: "Date range|Title|Note"
-EXPERIENCE=(
-  "2023 – present|Role · Company|One-line summary."
-)
-```
-
-After editing, no build step — just run `./zfolio`.
-
----
+Zfolio is an interactive terminal-style portfolio that combines a traditional shell experience with a modern navigable menu system:
+* Shell mode
+* Browser mode
 
 ## Project structure
 
@@ -155,9 +53,3 @@ zfolio/
 ├── install.sh      # installer / uninstaller
 └── README.md
 ```
-
----
-
-## License
-
-MIT — fork it, make it yours.
